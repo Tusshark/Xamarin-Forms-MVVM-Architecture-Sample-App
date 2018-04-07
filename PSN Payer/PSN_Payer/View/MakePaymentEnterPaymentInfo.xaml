@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PSN_Payer.View.MakePaymentEnterPaymentInfo"
+             xmlns:Local="clr-namespace:PSN_Payer.ViewModel"
+             NavigationPage.BackButtonTitle="Back"
+             NavigationPage.HasNavigationBar="True"
+             Title="Make Payment">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="headerLogo"/>
+        <ToolbarItem x:Name="headerSpaces"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <Local:MakePaymentViewModel x:Name="VM"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="5,10,5,5">
+                <!--<Frame CornerRadius="0" HeightRequest="45"  BackgroundColor="Black" Padding="0" HasShadow="True">
+                    <Frame CornerRadius="0" HeightRequest="38" Padding="0"></Frame>
+                </Frame>-->
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image HeightRequest="30" WidthRequest="35" Source="{Binding PaymentInfoIcon}"></Image>
+                    <Label Text="Payment Info" FontSize="Micro" TextColor="Black"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image HeightRequest="30" WidthRequest="35" Source="{Binding ConfirmPaymentIcon}"></Image>
+                    <Label Text="Confirm Payment" FontSize="Micro" TextColor="Black"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image HeightRequest="30" WidthRequest="35" Source="{Binding PaymentReceiptIcon}"></Image>
+                    <Label Text="Payment Receipt" FontSize="Micro" TextColor="Black"></Label>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding PaymentInfoVisibility}">
+                    <ScrollView>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
+
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+                                    <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                                    <Label Text="{Binding PaymentInfoHeadMsg}" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"></Label>
+                                    <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                                </StackLayout>
+
+                                <Label Text="Method Type" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                <Picker x:Name="pckMethodType" ItemsSource="{Binding MethodTypeList}" Title="Select Method Type" ItemDisplayBinding="{Binding PaymentMethodType}" SelectedIndexChanged="pckMethodType_SelectedIndexChanged"></Picker>
+
+                                <Label Text="Payment Date" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                <DatePicker x:Name="txtPaymentDate" Format="MM/dd/yyyy" MinimumDate="{Binding CurrentDate}" DateSelected="txtPaymentDate_DateSelected" />
+
+                                <Label Text="Payment Amount" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                <Entry x:Name="txtPymntAmt" Placeholder="Payment Amount" Keyboard="Numeric" TextChanged="txtPymntAmt_TextChanged" Unfocused="txtPymntAmt_Unfocused"></Entry>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Convenience Fee" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblConvnFeeValue" Text="" FontSize="Small" Font="Bold" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Total Fee" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblTotalFee" Text="" FontSize="Small" Font="Bold" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,40,0,0">
+                                    <Button x:Name="btnContinue" Text="Continue" BackgroundColor="{Binding BtnBackGround}" VerticalOptions="EndAndExpand" TextColor="White" Clicked="btnContinue_Clicked"></Button>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding ConfirmPaymentVisibility}">
+                    <ScrollView>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+                                    <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                                    <Label Text="{Binding ConfirmPaymentHeadMsg}" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"></Label>
+                                    <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Paying To" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblPayingTo" Text="{Binding PayingToValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Payment Method" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblPaymentMethod" Text="{Binding PaymentMethodValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Balance Due" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblBalDue" Text="{Binding BalanceDueValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Payment Date" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblPaymentDate" Text="{Binding PaymentDateValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Payment Amount" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblPaymentAmount" Text="{Binding PaymentAmountValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Convenience Fee" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblConvenienceFee" Text="{Binding ConvenienceFeeValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,4,0,4">
+                                    <Label Text="Total Fee" FontSize="Small" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblTotalFeeValue" Text="{Binding TotalFeeValue}" FontSize="Small" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="0,40,0,0">
+                                    <Button x:Name="btnEditInfo" Text="Edit Info" TextColor="White" HorizontalOptions="FillAndExpand" Command="{Binding BtnEditInfo}"></Button>
+                                    <Button x:Name="btnProcessPayment" Text="Process Payment" TextColor="White" HorizontalOptions="FillAndExpand" Clicked="btnProcessPayment_Clicked"></Button>
+                                </StackLayout>
+                                
+                            </StackLayout>
+
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding PaymentReceiptVisibility}">
+                    <ScrollView>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                                <Label Text="Payment Receipt" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"></Label>
+                                <BoxView HeightRequest="2" BackgroundColor="{Binding BtnBackGround}"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10,20,0,10">
+                                    <Label x:Name="lblStatus" Text="{Binding TransactionStatus}" HorizontalOptions="StartAndExpand" FontSize="Medium" TextColor="Black"></Label>
+                                    <Image HeightRequest="30" WidthRequest="30" Source="{Binding StatusImage}" HorizontalOptions="EndAndExpand"></Image>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="20,20,10,0" IsVisible="{Binding StkReceiptVisibility}">
+                                    <Label x:Name="lblConfirmation" Text="Confirmation#" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label x:Name="lblReceipt" Text="{Binding ReceiptNo}" TextColor="Black" HorizontalOptions="CenterAndExpand"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,20,0,0" IsVisible="{Binding ConfirmationVisibility}">
+                                    <Label x:Name="lblConfirmationEmail" Text="{Binding ConfimationOnEmail}" TextColor="Black"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="0,20,0,0">
+                                    <Button x:Name="btnOtherTransaction" Text="Make Another Payment" TextColor="White" Command="{Binding BtnAnotherPayment}" BackgroundColor="{Binding BtnBackGround}"></Button>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="0,20,0,0">
+                                    <Button x:Name="btnDashboard" Text="Go to Dashboard" TextColor="White" Command="{Binding BtnDashBoard}" BackgroundColor="{Binding BtnBackGround}"></Button>
+                                </StackLayout>
+                                
+                            </StackLayout>    
+                            
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

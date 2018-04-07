@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PSN_Payer.View.AddPaymentMethod"
+             xmlns:CustomEntry="clr-namespace:PSN_Payer.Custom_Control"
+             xmlns:Local="clr-namespace:PSN_Payer.ViewModel"
+             Title="Add Payment Method" BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <Local:PaymentMethodViewModel x:Name="VM"/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label x:Name="lblHeadMsg" Text="{Binding MainHeading}" TextColor="Black" FontSize="Medium"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10,0,10,0">
+                <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                        <Label x:Name="lblMethodType" Text="{Binding LblMethodType}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <!--<Frame CornerRadius="3" HeightRequest="40" WidthRequest="150" BackgroundColor="{Binding PickerOutlineColor}" Padding="2" IsClippedToBounds="True">
+                            <Frame CornerRadius="2" HeightRequest="35" WidthRequest="140" Padding="0" IsClippedToBounds="True" BackgroundColor="White">
+                                <Picker x:Name="pickerMehodType" ItemsSource="{Binding MethodTypeList}" SelectedItem="{Binding SelectedMethodType}" ItemDisplayBinding="{Binding Type}" Title="Select Method Type" SelectedIndexChanged="pickerMehodType_SelectedIndexChanged"></Picker>
+                            </Frame>
+                        </Frame>-->
+                            <Picker x:Name="pickerMehodType" ItemsSource="{Binding MethodTypeList}" SelectedItem="{Binding SelectedMethodType}" ItemDisplayBinding="{Binding Type}" Title="Select Method Type" SelectedIndexChanged="pickerMehodType_SelectedIndexChanged"></Picker>
+                        </StackLayout>
+
+                    <StackLayout x:Name="stkNameOnCard" Grid.Row="1" Grid.Column="0" Orientation="Vertical" IsVisible="{Binding IsCheckOrSaving}">
+                        <Label x:Name="lblNameOnCard" Text="{Binding LblNameOnCard}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <Entry x:Name="txtNameOnCard" Placeholder="Name On Card" TextChanged="txtNameOnCard_TextChanged"></Entry>
+                    </StackLayout>
+
+                    <StackLayout x:Name="stkNickName" Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+                        <Label x:Name="lblNickName" Text="{Binding LblNickName}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <Entry x:Name="txtNickName" Placeholder="Nick Name" TextChanged="txtNickName_TextChanged"></Entry>
+                    </StackLayout>
+
+                    <StackLayout x:Name="stkRoutingNo" Grid.Row="3" Grid.Column="0" Orientation="Vertical" IsVisible="{Binding IsCheckOrSaving}">
+                        <Label x:Name="lblRoutingNo" Text="{Binding LblRoutingNo}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <Entry x:Name="txtRoutingNo" Placeholder="Routing Number" Keyboard="Numeric" TextChanged="txtRoutingNo_TextChanged"></Entry>
+                    </StackLayout>
+                    
+                    <StackLayout x:Name="stkCardNo" Grid.Row="4" Grid.Column="0" Orientation="Vertical" IsVisible="{Binding IsVisa}">
+                        <Label x:Name="lblCardNo" Text="{Binding LblCardNo}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <Entry x:Name="txtCardNo" Placeholder="Card Number"  Keyboard="Numeric" TextChanged="txtCardNo_TextChanged"></Entry>
+                    </StackLayout>
+
+                    <StackLayout x:Name="stkExpDate" Grid.Row="5" Grid.Column="0" Orientation="Vertical" IsVisible="{Binding IsVisa}">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label x:Name="lblExpDate" Text="{Binding LblExpDate}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                                <Label x:Name="lblZipCode" Text="{Binding LblZipCode}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Entry x:Name="txtExpDateMonth"  Placeholder="MM"  Keyboard="Numeric" TextChanged="txtExpDateMonth_TextChanged" Unfocused="txtExpDateYear_Unfocused"></Entry>
+                            <Entry x:Name="txtExpDateYear"  Placeholder="YYYY"  Keyboard="Numeric" TextChanged="txtExpDateYear_TextChanged" Unfocused="txtExpDateYear_Unfocused"></Entry>
+                            <Entry x:Name="txtZipCode" Placeholder="ZipCode" HorizontalOptions="CenterAndExpand" Keyboard="Numeric" TextChanged="txtZipCode_TextChanged"></Entry>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout x:Name="stkAcctNo" Grid.Row="6" Grid.Column="0" Orientation="Vertical" IsVisible="{Binding IsCheckOrSaving}">
+                        <Label x:Name="lblAcctNo" Text="{Binding LblAcctNo}" TextColor="Black" FontSize="Small" HorizontalOptions="StartAndExpand"></Label>
+                        <Entry x:Name="txtAcctNo" Placeholder="Account Number" Keyboard="Numeric" TextChanged="txtAcctNo_TextChanged"></Entry>
+                    </StackLayout>
+
+                   
+
+                    <StackLayout Grid.Row="7" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="0,20,0,10">
+                        <Button x:Name="btnCancel" Text="Cancel" Command="{Binding BtnCancelClick}" WidthRequest="150" TextColor="White" BackgroundColor="{Binding BtnCancelBackground}"></Button>
+                        <Button x:Name="btnSave" Text="Save" Command="{Binding BtnSaveClick}" TextColor="White" WidthRequest="150" BackgroundColor="{Binding BtnSaveBackground}"></Button>
+                    </StackLayout>
+                    
+                </Grid>
+                </ScrollView>
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

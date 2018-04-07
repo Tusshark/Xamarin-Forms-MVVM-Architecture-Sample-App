@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnBackgroundColor" xml:space="preserve">
+    <value>#02946F</value>
+    <comment>Background color of buttons in whole App</comment>
+  </data>
+  <data name="BtnCancelBackground" xml:space="preserve">
+    <value>#cc8400</value>
+  </data>
+  <data name="CardNoNotMatched" xml:space="preserve">
+    <value>Error: Card number does not match the card type (i.e., VISA, Discover) you selected. Please choose the appropriate card type or re-enter the card number.</value>
+  </data>
+  <data name="CheckedStatus" xml:space="preserve">
+    <value>checked</value>
+  </data>
+  <data name="ConfirmToDelete" xml:space="preserve">
+    <value>Are you sure you want to delete?</value>
+  </data>
+  <data name="ConfPayBlank" xml:space="preserve">
+    <value>ConfPayBlank</value>
+  </data>
+  <data name="ConfPayFilled" xml:space="preserve">
+    <value>ConfPayFilled</value>
+  </data>
+  <data name="CrossConnectivityError" xml:space="preserve">
+    <value>Wifi network is not connected or low bandwidth</value>
+  </data>
+  <data name="DashboardIcon" xml:space="preserve">
+    <value>home</value>
+  </data>
+  <data name="DashboardLogo" xml:space="preserve">
+    <value>psnlogolg</value>
+  </data>
+  <data name="DateFormat" xml:space="preserve">
+    <value>MM/dd/yyyy</value>
+  </data>
+  <data name="DateNotbeinPast" xml:space="preserve">
+    <value>The Exp Date must not be in the past</value>
+  </data>
+  <data name="FilledMandatory" xml:space="preserve">
+    <value>All fields must be filled out</value>
+  </data>
+  <data name="HamburgerBarColor" xml:space="preserve">
+    <value>#57CBB2</value>
+  </data>
+  <data name="HeaderNavLogo" xml:space="preserve">
+    <value>psnlogonav.png</value>
+  </data>
+  <data name="HistoryHeadMessage" xml:space="preserve">
+    <value>Payment history for past 30 days</value>
+  </data>
+  <data name="IsCheck" xml:space="preserve">
+    <value>check</value>
+  </data>
+  <data name="IsSavings" xml:space="preserve">
+    <value>savings</value>
+  </data>
+  <data name="LblAcctNo" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="LblCardNo" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="LblExpDate" xml:space="preserve">
+    <value>Exp Date</value>
+  </data>
+  <data name="LblMethodType" xml:space="preserve">
+    <value>Method Type</value>
+  </data>
+  <data name="LblNameOnCard" xml:space="preserve">
+    <value>Name On Card</value>
+  </data>
+  <data name="LblNickName" xml:space="preserve">
+    <value>Nick Name</value>
+  </data>
+  <data name="LblRoutingNo" xml:space="preserve">
+    <value>Routing Number</value>
+  </data>
+  <data name="LblZipCode" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="LoaderBackGround" xml:space="preserve">
+    <value>#D1F2EB</value>
+  </data>
+  <data name="LoginError101" xml:space="preserve">
+    <value>Unable to locate email address</value>
+  </data>
+  <data name="LoginError102" xml:space="preserve">
+    <value>Unable to locate contact number</value>
+  </data>
+  <data name="LoginError150" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="LoginError195" xml:space="preserve">
+    <value>Account has no password/not setup</value>
+  </data>
+  <data name="LoginError199" xml:space="preserve">
+    <value>Unknown login error</value>
+  </data>
+  <data name="LoginScreenBackgroundPortrait" xml:space="preserve">
+    <value>screen2</value>
+    <comment>Backgournd image on Login screen when device in portrait mode.</comment>
+  </data>
+  <data name="LoginScreenInCorrectCredentials" xml:space="preserve">
+    <value>Please enter correct email or password</value>
+  </data>
+  <data name="MenuItemIconBills" xml:space="preserve">
+    <value>bills</value>
+    <comment>Bills</comment>
+  </data>
+  <data name="MenuItemIconHistory" xml:space="preserve">
+    <value>History</value>
+    <comment>History</comment>
+  </data>
+  <data name="MenuItemIconLogout" xml:space="preserve">
+    <value>logout</value>
+    <comment>Logout</comment>
+  </data>
+  <data name="MenuItemIconMakePayment" xml:space="preserve">
+    <value>makepayment</value>
+    <comment>Make Payment</comment>
+  </data>
+  <data name="MenuItemIconPaymentMethod" xml:space="preserve">
+    <value>paymentmethod</value>
+    <comment>Payment Method</comment>
+  </data>
+  <data name="MenuItemIconSettings" xml:space="preserve">
+    <value>settings</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="MenuItemImageArrow" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
+  <data name="NoBillGenerated" xml:space="preserve">
+    <value>No record found.</value>
+  </data>
+  <data name="PayInfoBlank" xml:space="preserve">
+    <value>PayInfoBlank</value>
+  </data>
+  <data name="PayInfoFilled" xml:space="preserve">
+    <value>PayInfoFilled</value>
+  </data>
+  <data name="PaymentInfoHeadMsg" xml:space="preserve">
+    <value>Enter Payment Info</value>
+  </data>
+  <data name="PaymentMethodAcctNo" xml:space="preserve">
+    <value>Please enter account number</value>
+  </data>
+  <data name="PaymentMethodAdded" xml:space="preserve">
+    <value>New Banking Added Successfully</value>
+  </data>
+  <data name="PaymentMethodCardNo" xml:space="preserve">
+    <value>Please enter card number</value>
+  </data>
+  <data name="PaymentMethodMonth" xml:space="preserve">
+    <value>Please enter month</value>
+  </data>
+  <data name="PaymentMethodMonth1T12" xml:space="preserve">
+    <value>Please enter month between 1 to 12</value>
+  </data>
+  <data name="PaymentMethodNickName" xml:space="preserve">
+    <value>Please enter nick name</value>
+  </data>
+  <data name="PaymentMethodRoutingNo" xml:space="preserve">
+    <value>Please enter routing number</value>
+  </data>
+  <data name="PaymentMethodValCardNo" xml:space="preserve">
+    <value>Please enter valid card number</value>
+  </data>
+  <data name="PaymentMethodValDate" xml:space="preserve">
+    <value>Please enter valid date</value>
+  </data>
+  <data name="PaymentMethodValMethodType" xml:space="preserve">
+    <value>Please select method type</value>
+  </data>
+  <data name="PaymentMethodValNameOn" xml:space="preserve">
+    <value>Please enter name on</value>
+  </data>
+  <data name="PaymentMethodValYear" xml:space="preserve">
+    <value>Please enter valid year</value>
+  </data>
+  <data name="PaymentMethodYear" xml:space="preserve">
+    <value>Please enter year</value>
+  </data>
+  <data name="PaymentMethodZip" xml:space="preserve">
+    <value>Please enter zip code</value>
+  </data>
+  <data name="PayReceiptBlank" xml:space="preserve">
+    <value>PayReceiptBlank</value>
+  </data>
+  <data name="PayReceiptFilled" xml:space="preserve">
+    <value>PayReceiptFilled</value>
+  </data>
+  <data name="PendingStatus" xml:space="preserve">
+    <value>pending</value>
+  </data>
+  <data name="PickerOutlineColor" xml:space="preserve">
+    <value>#999999</value>
+  </data>
+  <data name="RegexNumber" xml:space="preserve">
+    <value>@"^([0-9])*$"</value>
+  </data>
+  <data name="RejectedStatus" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ReqMsgLoginPassword" xml:space="preserve">
+    <value>Please enter Password</value>
+  </data>
+  <data name="ReqMsgLoginUserID" xml:space="preserve">
+    <value>Please enter UserID</value>
+  </data>
+  <data name="SecurityKey" xml:space="preserve">
+    <value>8Rd28e+QHUkakFu+PrjasQ==</value>
+  </data>
+  <data name="ServicePathBeta" xml:space="preserve">
+    <value>http://beta.paymentservicenetwork.com/PSNSoftNet/PTPMobile.asmx?op=</value>
+  </data>
+  <data name="ServicePathProduction" xml:space="preserve">
+    <value>https://www.paymentservicenetwork.com/PSNSoftNet/PTPMobile.asmx?op=</value>
+  </data>
+  <data name="SettingConfirmPassError" xml:space="preserve">
+    <value>Please enter confirm password.</value>
+  </data>
+  <data name="SettingCorrectOldPassError" xml:space="preserve">
+    <value>Please enter correct old password.</value>
+  </data>
+  <data name="SettingNewPassError" xml:space="preserve">
+    <value>Please enter new password.</value>
+  </data>
+  <data name="SettingOldPassError" xml:space="preserve">
+    <value>Please enter old password.</value>
+  </data>
+  <data name="SettingPassChanged" xml:space="preserve">
+    <value>Password has been changed sucessfully.</value>
+  </data>
+  <data name="SettingPassDontMatch" xml:space="preserve">
+    <value>Confirm password do not match with New password.</value>
+  </data>
+  <data name="SettingPassWarning" xml:space="preserve">
+    <value>Password can't be less than 6 characters.</value>
+  </data>
+  <data name="SignUpURL" xml:space="preserve">
+    <value>https://www.paymentservicenetwork.com/mobile/search.aspx</value>
+  </data>
+  <data name="ConfirmPaymentHeadMsg" xml:space="preserve">
+    <value>Confirm Payment Info</value>
+  </data>
+  <data name="MakePaymentReq1" xml:space="preserve">
+    <value>Please enter payment amount</value>
+  </data>
+  <data name="MakePaymentReq2" xml:space="preserve">
+    <value>Please enter payment date</value>
+  </data>
+  <data name="MakePaymentVal1Msg" xml:space="preserve">
+    <value>Please enter a value between</value>
+  </data>
+  <data name="BillsSignImage" xml:space="preserve">
+    <value>billssign</value>
+  </data>
+  <data name="DownloadImage" xml:space="preserve">
+    <value>download</value>
+  </data>
+  <data name="CheckConfirmMsg" xml:space="preserve">
+    <value>Checks are accepted under these conditions. When you pay by check and if your check is dishonored or returned for any reason, you expressly authorize this merchant to electronically debit your account for the amount of the check plus an NSF fee and any other recovery fees allowed by the State of your checking account and any applicable sales tax that may apply. The use of a check for payment and agreement to these terms is herein agreed by selecting OK and click [Process Payment] to complete your payment process. Your acknowledgment and acceptance of this policy and its terms are hereby legally binding when processed.</value>
+  </data>
+  <data name="ConfirmationOnEmail" xml:space="preserve">
+    <value>A confirmation email has been sent to your email.</value>
+  </data>
+  <data name="PaymentMethodIncorrectDefinition" xml:space="preserve">
+    <value>error:paymentmethodhasincorrecttypedefinition.</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>An unknown error occurred !!</value>
+  </data>
+</root>

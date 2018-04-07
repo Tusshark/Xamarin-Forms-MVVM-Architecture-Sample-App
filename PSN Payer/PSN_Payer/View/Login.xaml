@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PSN_Payer.View.Login"
+             xmlns:CustomEntry="clr-namespace:PSN_Payer.Custom_Control"
+             xmlns:Helper="clr-namespace:PSN_Payer.Helper"
+             xmlns:Local="clr-namespace:PSN_Payer.ViewModel">
+
+    <ContentPage.BindingContext>
+        <Local:LoginViewModel x:Name="VM"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <!--<RowDefinition Height="Auto"/>-->
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Grid.Row="0" Grid.ColumnSpan="3" x:Name="MainStack">
+                <!--<ActivityIndicator x:Name="Loader" IsRunning="{Binding IsRunning}" ></ActivityIndicator>-->
+                <!--<CustomEntry:CustomEntry x:Name="txtUserID" Placeholder="Enter UserID" Text="{Binding UserID}"></CustomEntry:CustomEntry>-->
+                <CustomEntry:CustomEntry x:Name="txtUserID" Placeholder="Enter UserID" Text="{Binding UserID}"></CustomEntry:CustomEntry>
+                <CustomEntry:CustomEntry x:Name="txtPassword" IsPassword="True" Placeholder="Enter Password" Text="{Binding Password}"></CustomEntry:CustomEntry>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="Remember me" FontSize="Medium" TextColor="{StaticResource textColor}"></Label>
+                    <Switch  x:Name="swtchRemember" IsToggled="{Binding Remember}"></Switch>
+                </StackLayout>
+                <Button Text="{Binding LoginButtonText}" x:Name="btnLogin" TextColor="White"  Command="{Binding LoginCommand}"></Button>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.ColumnSpan="3" Padding="10,0,10,0">
+                <Label x:Name="lblSignUp" Text="Create an account" TextColor="{StaticResource textColor}" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignUp}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lblAppVersion" FontSize="Medium" TextColor="Black" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Text="{Binding AppVersion}"></Label>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
